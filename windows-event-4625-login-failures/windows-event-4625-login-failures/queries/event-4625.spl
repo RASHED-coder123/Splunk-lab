@@ -1,0 +1,12 @@
+# Search 1: Find Windows failed logon events (Event ID 4625)
+index=main sourcetype="WMI:WinEventLog:Security" EventCode=4625
+
+# Search 2: Count by source IP, username, and action
+index=main sourcetype="WMI:WinEventLog:Security" EventCode=4625
+| stats count by src_ip user action
+| sort - count
+
+# Search 3: Use original Windows event fields if src_ip/user are not extracted
+index=main sourcetype="WMI:WinEventLog:Security" EventCode=4625
+| stats count by Source_Network_Address Account_Name action
+| sort - count
