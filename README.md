@@ -111,13 +111,7 @@ The detailed event view also shows the failure reason as **“Unknown user name 
 - Look for a successful logon (Event ID `4624`) from the same source or involving the same account after repeated failures.
 - Escalate according to the organization's incident response procedure if the activity is unusual or sustained.
 
-## Recommended next steps
 
-1. Confirm which device owns `192.168.0.1`.
-2. Review the full raw 4625 events and confirm the username and logon type.
-3. Correlate failures with successful logons (Event ID 4624).
-4. Check whether the attempts are repeated across multiple accounts or hosts.
-5. Document the evidence and follow the organization's SOP before taking containment actions.
 
 
 
