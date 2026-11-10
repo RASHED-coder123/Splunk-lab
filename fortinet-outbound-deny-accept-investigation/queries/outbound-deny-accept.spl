@@ -1,0 +1,19 @@
+# Step 1: Search internal-to-external denied IPv4 traffic
+index=main vendor_product="Fortinet Firewall"
+src_ip IN (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)
+NOT dest_ip IN (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)
+vendor_action=deny protocol_version=ipv4
+| stats count by src_ip, action
+| sort - count
+
+# Step 2: Check accepted traffic from the identified source
+index=main vendor_product="Fortinet Firewall"
+src_ip IN (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)
+NOT dest_ip IN (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)
+vendor_action=accept protocol_version=ipv4
+src_ip="10.212.134.206"
+
+# Step 3: Broader action/destination comparison
+index=main vendor_product="Fortinet Firewall" src_ip="10.212.134.206" protocol_version=ipv4
+| stats count by vendor_action, action, dest_ip
+| sort - count
