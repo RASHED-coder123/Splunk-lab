@@ -119,20 +119,6 @@ The detailed event view also shows the failure reason as **“Unknown user name 
 4. Check whether the attempts are repeated across multiple accounts or hosts.
 5. Document the evidence and follow the organization's SOP before taking containment actions.
 
-## Screenshots
 
-### 1. Splunk failed logon summary
-
-![Splunk summary of failed logons](screenshots/01-splunk-failed-logon-summary.png)
-
-### 2. Windows Event ID 4625 details
-
-![Windows Event 4625 details](screenshots/02-windows-event-4625-details.png)
-
-### 3. Extracted and normalized event fields
-
-![Extracted event fields](screenshots/03-normalized-event-fields.png)
-
-## Disclaimer
 
 This is a learning lab based on the events visible in the supplied screenshots. The findings are not, by themselves, proof of a brute-force attack or compromise. Validate the environment and surrounding telemetry before drawing conclusions or taking action.
