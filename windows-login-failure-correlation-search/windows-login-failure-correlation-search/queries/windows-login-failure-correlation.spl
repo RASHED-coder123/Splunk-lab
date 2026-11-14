@@ -1,0 +1,12 @@
+# Main correlation search: more than 10 failed Windows logons per username
+vendor_product="Microsoft Windows" EventCode=4625
+| stats count by user
+| where count > 10
+
+# Drill-down search with source and destination context
+vendor_product="Microsoft Windows" EventCode=4625
+| stats count as failed_attempts values(src) as src values(ComputerName) as dest by user
+| where failed_attempts > 10
+
+# Review the example username from the supplied screenshots
+vendor_product="Microsoft Windows" EventCode=4625 user="jan2025"
