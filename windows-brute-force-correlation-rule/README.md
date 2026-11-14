@@ -7,7 +7,7 @@ Created a Splunk Enterprise Security correlation search to detect a high number 
 ## 1. Create the correlation search
 
 **Search name:** High Number of Windows Login Failure Attempts Detected From Same Username  
-  Severity:  Low
+**Severity:** Low
 **Description:** Detect Windows Brute Force Attempt  
 **App:** Enterprise Security
 
