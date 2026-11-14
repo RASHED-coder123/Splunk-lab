@@ -1,5 +1,0 @@
-# Correlation Search: High Number of Windows Login Failure Attempts
-# Detect more than 10 failed logons (Event ID 4625) for the same username.
-vendor_product="Microsoft Windows" EventCode=4625
-| stats count by user
-| where count > 10
